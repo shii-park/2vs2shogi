@@ -3,6 +3,8 @@
 .PHONY: setup up down clear
 
 setup: 
+	@echo "Creating .env from .env.example"
+	@if [ ! -f .env ]; then cp .env.example .env; fi
 	@echo "Initializing submodules..."
 	git submodule update --init --recursive
 	@echo "Building docker images..."
