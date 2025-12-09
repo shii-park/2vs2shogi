@@ -1,6 +1,6 @@
 # Makefile
 
-.PHONY: setup up down clear front-up front-log front-build
+.PHONY: setup up down clear front-up front-log front-build back-up back-log back-build
 
 setup: 
 	@echo "Creating .env from .env.example"
@@ -33,3 +33,15 @@ front-log:
 # フロントエンドを再ビルドして起動（ライブラリ追加時など）
 front-build:
 	docker compose up -d --build frontend
+
+# バックエンドコンテナの起動
+back-up:
+	docker compose up -d backend
+
+# バックエンドのログを見る
+back-log:
+	docker compose logs -f backend
+
+# バックエンドを再ビルドして起動（ライブラリ追加時など）
+back-build:
+	docker compose up -d --build backend
