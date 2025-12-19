@@ -47,7 +47,7 @@ resource "azurerm_container_app" "backend" {
     value = azurerm_redis_cache.redis.primary_access_key
   }
   ingress {
-    external_enabled    = false
+    external_enabled = true
     target_port = 8080
     transport   = "auto"
 
