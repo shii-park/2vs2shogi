@@ -6,7 +6,7 @@ setup:
 	@echo "Creating .env from .env.example"
 	@if [ ! -f .env ]; then cp .env.example .env; fi
 	@echo "Initializing submodules..."
-	git submodule update --init --recursive
+	git subModule update --remote --merge --recursive
 	@echo "Building docker images..."
 	docker compose build
 
@@ -21,6 +21,10 @@ down:
 # リセット
 clear:
 	docker compose down --rmi all --volumes --remove-orphans
+
+# アップデート
+update:
+	git subModule update --remote --merge --recursive
 
 # フロントエンドコンテナの起動
 front-up:
