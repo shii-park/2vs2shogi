@@ -23,6 +23,8 @@ resource "azurerm_container_app" "backend" {
   revision_mode                = "Single"
 
   template {
+    min_replicas = 1
+    max_replicas = 5
     container {
       name   = "backend"
       image  = "mcr.microsoft.com/azuredocs/containerapps-helloworld:latest"
@@ -66,6 +68,8 @@ resource "azurerm_container_app" "frontend" {
   revision_mode                = "Single"
 
   template {
+    min_replicas = 1
+    max_replicas = 5
     container {
       name   = "frontend"
       image  = "mcr.microsoft.com/azuredocs/containerapps-helloworld:latest"
