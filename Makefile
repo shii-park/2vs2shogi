@@ -26,6 +26,10 @@ clear:
 update:
 	git subModule update --remote --merge --recursive
 
+# 再ビルド
+rebuild:
+	docker compose build
+
 # フロントエンドコンテナの起動
 front-up:
 	docker compose up -d frontend
